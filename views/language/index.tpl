@@ -2,6 +2,9 @@
 {$auto_menu}
 
 <div>
+{render_partial template="language_menu.tpl"}
+</div>
+<div>
 {lang name="_LANG_INSTRUCTIONS_1" section="language"}
 <ol>
 <li>{lang name="_LANG_INSTRUCTIONS_2" section="language"}</li>

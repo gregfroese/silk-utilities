@@ -215,6 +215,7 @@ class AclController extends SilkControllerBase {
 		return $updated_params;
 	}
 	private function delete_ACL_ARO() {
+		// this needs to just be one line of SQL
 		$acl_aro = orm("acl_aro")->find_all();
 		foreach( $acl_aro as $one_acl_aro ) {
 			$one_acl_aro->delete();
@@ -263,5 +264,13 @@ class AclController extends SilkControllerBase {
 			}
 		}
 		return $methods;
+	}
+	
+	/**
+	 * Function to show user when they get declined access
+	 *
+	 * @param unknown_type $params
+	 */
+	public function access_declined($params) {
 	}
 }

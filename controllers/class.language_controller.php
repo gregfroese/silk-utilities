@@ -131,9 +131,9 @@ class LanguageController extends SilkControllerBase {
 	}
 	
 	public function build_navigation() {
-//		self::translate_links();
-//		self::update_link();
-//		self::home_link();
+		self::translate_links();
+		self::update_link();
+		self::home_link();
 		SilkUtilsController::build_menu();
 	}
 	
