@@ -10,6 +10,8 @@ class AclController extends SilkControllerBase {
 		if( isset( $params["input"] )) {
 			$this->set_ACL_ARO( $params );
 			$this->set("save", 1);
+			$this->flash = "ACL saved";
+			redirect(SilkRequest::get_requested_uri(true));
 		}
 		
 		$this->set("acl_aro", $this->get_ACL_ARO($params));
@@ -215,11 +217,7 @@ class AclController extends SilkControllerBase {
 		return $updated_params;
 	}
 	private function delete_ACL_ARO() {
-		// this needs to just be one line of SQL
-		$acl_aro = orm("acl_aro")->find_all();
-		foreach( $acl_aro as $one_acl_aro ) {
-			$one_acl_aro->delete();
-		}
+		db()->Execute("DELETE FROM ". db_prefix() . "ACL_ARO");
 	}
 	
 	private function get_ACL_ARO() {
